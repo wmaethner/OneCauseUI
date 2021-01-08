@@ -1,0 +1,30 @@
+<div class="row justify-content-center align-items-center">
+  <div class="login-container">
+    <div class="text-center">
+      <h1>Login</h1>
+    </div>
+
+    <div *ngIf="errorMessage">
+      <span class="badge badge-danger">
+        {{errorMessage}}
+      </span>      
+    </div>
+    <form (ngSubmit)="onSubmit(loginForm.value)" [formGroup]="loginForm" class="form-container">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" formControlName="username">
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="text" class="form-control" id="password" formControlName=password>
+      </div>
+
+      <button type="submit" class="btn btn-primary float-right">Submit</button>
+    </form>
+    <!-- TODO: get this lined up within the login container -->
+    <!-- <div class="brand">
+      <label>Schnell-Schnell</label>
+    </div> -->
+  </div>
+</div>
