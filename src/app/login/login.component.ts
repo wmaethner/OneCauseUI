@@ -30,10 +30,8 @@ export class LoginComponent implements OnInit {
     var password = this.loginForm.value["password"];
     this.loginService.login(username, password).subscribe((data: Response) => {
       if (data.Result) {
-        console.log("Success");
-        this.redirectService.redirectToUrl('http://onecause.com');
+        this.redirectService.redirectToUrl(data.RedirectURL);
       } else {
-        console.log("Fail " + data.ErrorMessage);
         this.errorMessage = data.ErrorMessage;
       }
     });
@@ -43,4 +41,5 @@ export class LoginComponent implements OnInit {
 export class Response {
   Result: boolean;
   ErrorMessage: string;
+  RedirectURL: string;
 }
